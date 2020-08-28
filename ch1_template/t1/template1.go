@@ -28,7 +28,7 @@ func main() {
 	//可限定Parse的類型
 	//tpl, err = template.ParseGlob("*")
 	//如果ParseGlob 有錯誤Must會拋出panic
-	tpl = template.Must(template.ParseGlob("*"))
+	tpl = template.Must(template.ParseGlob("*.html"))
 	tpl.ExecuteTemplate(os.Stdout, "two.html", nil)
 	tpl.ExecuteTemplate(os.Stdout, "Three.html", nil)
 	//取得第一筆
