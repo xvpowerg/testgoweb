@@ -28,11 +28,15 @@ func (t *Template) Parse(text string) (*Template, error)
 ## [template.ParseFiles](https://godoc.org/text/template#Template.ParseFiles)
 ``` Go
 func (t *Template) ParseFiles(filenames ...string) (*Template, error)
+//一次ParseFiles 多筆
+tpl, err = template.ParseFiles("two.html", "Three.html")
 ```
 
 ## [template.ParseGlob](https://godoc.org/text/template#Template.ParseGlob)
 ``` Go
 func (t *Template) ParseGlob(pattern string) (*Template, error)
+//可限定Parse的類型
+tpl, err = template.ParseGlob("*")
 ```
 
 ***
@@ -42,20 +46,29 @@ func (t *Template) ParseGlob(pattern string) (*Template, error)
 ## [template.Execute](https://godoc.org/text/template#Template.Execute)
 ``` Go
 func (t *Template) Execute(wr io.Writer, data interface{}) error
+//可指定Template的輸出
+tpl.Execute(os.Stdout, nil)
 ```
 
 ## [template.ExecuteTemplate](https://godoc.org/text/template#Template.ExecuteTemplate)
 ``` Go
 func (t *Template) ExecuteTemplate(wr io.Writer, name string, data interface{}) error
+一次ParseFiles多筆時可指定要輸出的Template
+tpl.ExecuteTemplate(os.Stdout, "two.html", nil)
+
 ```
 
 ***
 
-# Helpful template functions
+# Helpful template functions 
 
 ## [template.Must](https://godoc.org/text/template#Must)
 ``` Go
 func Must(t *Template, err error) *Template
+```
+``` Go
+//如果ParseGlob 有錯誤Must會拋出panic
+tpl = template.Must(template.ParseGlob("*"))
 ```
 
 ## [template.New](https://godoc.org/text/template#New)
