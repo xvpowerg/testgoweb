@@ -27,7 +27,7 @@ A pipeline inside an action may initialize a variable to capture the result. The
  A variable's scope extends to the "end" action of the control structure ("if", "with", or "range") in which it is declared, or to the end of the template if there is no such control structure. A template invocation does not inherit variables from the point of its invocation.
  
  When execution begins, $ is set to the data argument passed to Execute, that is, to the starting value of dot.
-**example**
+## **example**
 ### Go
 ``` Go
 var templ *template.Template
