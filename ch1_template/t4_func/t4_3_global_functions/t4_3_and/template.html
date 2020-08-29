@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+</head>
+<body>
+{{range .}}
+{{.}}{{end}}
+
+EXAMPLE #2
+{{if .}}
+    EXAMPLE #2 - {{.}}
+{{end}}
+
+EXAMPLE #3
+{{range .}}
+    {{if .Name}}
+        {{.Name}}
+    {{end}}
+{{end}}
+
+EXAMPLE #4
+{{range .}}
+    {{if and .Name .CanSales}}
+        EXAMPLE #4 - Name: {{.Name}}
+        EXAMPLE #4 - Motto: {{.Des}}
+        EXAMPLE #4 - Admin: {{.CanSales}}
+    {{end}}
+{{end}}
+</body>
+</html>
